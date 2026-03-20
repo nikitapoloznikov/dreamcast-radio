@@ -181,6 +181,7 @@ function initApp() {
   initSwipeGestures();
   initPlayerControls();
   initKeyboard();
+  initMediaSession();
   loadYouTubeAPI();
 }
 
@@ -209,6 +210,27 @@ function initKeyboard() {
         if (playerReady && player) { const v = Math.max(0, player.getVolume() - 5); player.setVolume(v); document.getElementById('volume').value = v; }
         break;
     }
+  });
+}
+
+// ─── MEDIA SESSION (MacBook media keys: F7/F8/F9/F10) ───
+function initMediaSession() {
+  if (!('mediaSession' in navigator)) return;
+  navigator.mediaSession.metadata = new MediaMetadata({
+    title: 'DREAMCAST RADIO',
+    artist: 'Jungle Mixtape',
+  });
+  navigator.mediaSession.setActionHandler('play', () => {
+    if (playerReady && player) player.playVideo();
+  });
+  navigator.mediaSession.setActionHandler('pause', () => {
+    if (playerReady && player) player.pauseVideo();
+  });
+  navigator.mediaSession.setActionHandler('previoustrack', () => {
+    if (playerReady && player && isPlaying) player.seekTo(Math.max(0, player.getCurrentTime() - 30), true);
+  });
+  navigator.mediaSession.setActionHandler('nexttrack', () => {
+    loadMix(getCurrentMix());
   });
 }
 
@@ -301,6 +323,15 @@ function loadMix(mix) {
   document.getElementById('mix-card').classList.add('swipe-right');
   document.getElementById('player-now-playing').textContent = mix.title;
   document.getElementById('status-text').textContent = `NOW PLAYING: ${mix.genre} // ${mix.channel}`;
+  // Update media session for macOS media keys
+  if ('mediaSession' in navigator) {
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: mix.title,
+      artist: mix.channel,
+      album: 'DREAMCAST RADIO',
+      artwork: [{ src: `https://img.youtube.com/vi/${mix.id}/hqdefault.jpg`, sizes: '480x360', type: 'image/jpeg' }]
+    });
+  }
   document.getElementById('marquee-text').textContent = `::::: ${mix.title} ::::: ${mix.channel} ::::: ${mix.genre} ::::: JUNGLE MIXTAPE Y2K ::::: `;
   if (playerReady && player) {
     player.loadVideoById({ videoId: mix.id, startSeconds: 0 });
