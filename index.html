@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JUNGLE MIXTAPE // Y2K</title>
+  <meta name="description" content="Y2K retro jungle, drum & bass mix player. PSX/Winamp aesthetic.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="scanlines"></div>
+  <div class="crt-flicker"></div>
+
+  <div id="app" class="app">
+    <div class="status-bar">
+      <div class="status-left">
+        <span class="status-icon">▶</span>
+        <span id="status-text">JUNGLE MIXTAPE // SELECT A MIX</span>
+      </div>
+      <div class="status-right">
+        <span id="clock"></span>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <div class="panel visualizer-panel">
+        <div class="window-chrome">
+          <div class="title-bar">
+            <span class="title-text">◈ VISUALIZER.exe</span>
+            <div class="window-controls">
+              <span class="win-btn">_</span>
+              <span class="win-btn">□</span>
+              <span class="win-btn">×</span>
+            </div>
+          </div>
+        </div>
+        <div id="viz-video-container">
+          <div id="viz-yt-player"></div>
+        </div>
+        <canvas id="visualizer" width="480" height="360"></canvas>
+      </div>
+
+      <div class="panel mix-panel">
+        <div class="window-chrome">
+          <div class="title-bar">
+            <span class="title-text">◈ MIX_SELECTOR.exe</span>
+            <div class="window-controls">
+              <span class="win-btn">_</span>
+              <span class="win-btn">□</span>
+              <span class="win-btn">×</span>
+            </div>
+          </div>
+        </div>
+        <div class="mix-card-container">
+          <div id="mix-card" class="mix-card">
+            <div class="mix-card-inner">
+              <img id="mix-thumbnail" class="mix-thumbnail" src="" alt="Mix thumbnail">
+              <div class="mix-info">
+                <h2 id="mix-title" class="mix-title"></h2>
+                <p id="mix-channel" class="mix-channel"></p>
+                <div class="mix-stats">
+                  <span id="mix-genre" class="stat genre-tag"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="swipe-left-indicator" class="swipe-indicator swipe-left-ind">◄ SKIP</div>
+          <div id="swipe-right-indicator" class="swipe-indicator swipe-right-ind">LOAD ►</div>
+        </div>
+        <div class="swipe-buttons">
+          <button id="btn-skip" class="btn-retro btn-skip" title="Skip this mix">✕ SKIP</button>
+          <button id="btn-load" class="btn-retro btn-load" title="Load this mix">▶ LOAD</button>
+        </div>
+        <div class="mix-queue-label">UPCOMING:</div>
+        <div id="mix-queue" class="mix-queue"></div>
+      </div>
+    </div>
+
+    <div class="player-bar">
+      <div class="window-chrome">
+        <div class="title-bar player-title">
+          <span class="title-text">◈ JUNGLE_PLAYER.exe — <span id="player-now-playing">NO MIX LOADED</span></span>
+          <div class="window-controls">
+            <span class="win-btn">_</span>
+            <span class="win-btn">□</span>
+            <span class="win-btn">×</span>
+          </div>
+        </div>
+      </div>
+      <div class="player-controls">
+        <div class="player-display">
+          <div id="player-time" class="player-time">00:00 / 00:00</div>
+          <div class="player-marquee">
+            <span id="marquee-text" class="marquee-text">::::: JUNGLE MIXTAPE ::::: ATMOSPHERIC DnB ::::: PSX JUNGLE ::::: BREAKBEAT ::::: Y2K ::::: LOW POLY ::::: INTELLIGENT DnB :::::</span>
+          </div>
+        </div>
+        <div class="timeline-container">
+          <input type="range" id="timeline" class="timeline" min="0" max="100" value="0" step="0.1">
+          <div id="timeline-fill" class="timeline-fill"></div>
+        </div>
+        <div class="transport-controls">
+          <button id="btn-prev" class="btn-transport" title="Previous">⏮</button>
+          <button id="btn-play" class="btn-transport btn-play" title="Play/Pause">▶</button>
+          <button id="btn-stop" class="btn-transport" title="Stop">⏹</button>
+          <button id="btn-next" class="btn-transport" title="Next">⏭</button>
+          <div class="volume-control">
+            <span class="vol-label">VOL</span>
+            <input type="range" id="volume" class="volume-slider" min="0" max="100" value="80">
+          </div>
+        </div>
+      </div>
+      <div id="yt-player-container" style="position:absolute;left:-9999px;top:-9999px;">
+        <div id="yt-player"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

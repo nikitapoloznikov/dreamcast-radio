@@ -1,0 +1,13 @@
+{
+  "name": "jungle-mixtape",
+  "version": "1.0.0",
+  "description": "Y2K retro jungle/DnB/garage mix player",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}
