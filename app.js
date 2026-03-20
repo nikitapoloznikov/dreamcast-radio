@@ -142,9 +142,34 @@ let vizPlayer = null;
 let vizPlayerReady = false;
 let vizClipTimer = null;
 
-// ─── INSTANT BOOT ───
+// ─── BOOT SCREEN ───
 document.addEventListener('DOMContentLoaded', () => {
-  initApp();
+  const bootScreen = document.getElementById('boot-screen');
+  const app = document.getElementById('app');
+
+  // Animate boot text lines
+  const lines = bootScreen.querySelectorAll('p');
+  lines.forEach((line, i) => {
+    line.style.opacity = '0';
+    setTimeout(() => { line.style.opacity = '1'; }, i * 150);
+  });
+
+  // Click/tap/key dismisses boot and starts everything
+  const enter = () => {
+    bootScreen.style.transition = 'opacity 0.4s';
+    bootScreen.style.opacity = '0';
+    setTimeout(() => {
+      bootScreen.style.display = 'none';
+      app.style.display = 'flex';
+      initApp();
+    }, 400);
+    document.removeEventListener('click', enter);
+    document.removeEventListener('keydown', enter);
+    document.removeEventListener('touchstart', enter);
+  };
+  document.addEventListener('click', enter);
+  document.addEventListener('keydown', enter);
+  document.addEventListener('touchstart', enter);
 });
 
 // ─── INIT ───
@@ -157,20 +182,6 @@ function initApp() {
   initPlayerControls();
   initKeyboard();
   loadYouTubeAPI();
-
-  // Capture first user interaction to unlock audio
-  const unlockAudio = () => {
-    if (playerReady && player && !isPlaying && pendingAutoplay) {
-      pendingAutoplay = false;
-      loadMix(getCurrentMix());
-    }
-    document.removeEventListener('click', unlockAudio);
-    document.removeEventListener('keydown', unlockAudio);
-    document.removeEventListener('touchstart', unlockAudio);
-  };
-  document.addEventListener('click', unlockAudio);
-  document.addEventListener('keydown', unlockAudio);
-  document.addEventListener('touchstart', unlockAudio);
 }
 
 // ─── KEYBOARD ───

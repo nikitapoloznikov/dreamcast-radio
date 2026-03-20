@@ -14,7 +14,22 @@
   <div class="scanlines"></div>
   <div class="crt-flicker"></div>
 
-  <div id="app" class="app">
+  <!-- Boot Screen -->
+  <div id="boot-screen" class="boot-screen">
+    <div class="boot-text">
+      <p>DREAMCAST_RADIO v1.0</p>
+      <p>Copyright (c) 1999 BASS SYSTEMS INC.</p>
+      <p>&nbsp;</p>
+      <p>Detecting audio subsystem... <span class="blink">OK</span></p>
+      <p>Loading breakbeat database... <span class="blink">OK</span></p>
+      <p>Initializing amen breaks... <span class="blink">OK</span></p>
+      <p>Mounting vinyl decks... <span class="blink">OK</span></p>
+      <p>&nbsp;</p>
+      <p class="boot-prompt">CLICK ANYWHERE TO ENTER<span class="cursor">_</span></p>
+    </div>
+  </div>
+
+  <div id="app" class="app" style="display:none">
     <div class="status-bar">
       <div class="status-left">
         <span class="status-icon">▶</span>
