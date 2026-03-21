@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Yellow outline dolphin - Dreamcast Radio logo style -->
+  <!-- Sun/Moon arc -->
+  <path d="M40,140 Q40,30 160,140" stroke="#e8d44d" stroke-width="2.5" fill="none"/>
+  <!-- Dolphin body outline - jumping pose -->
+  <path d="M95,145 Q80,135 72,120 Q65,105 68,90 Q70,78 78,68 Q85,58 95,50 Q105,42 118,38 Q130,35 140,40 Q148,44 152,52 Q155,58 150,64 Q145,70 138,72 L132,74 Q128,72 125,74 Q120,76 118,80"
+    stroke="#e8d44d" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Lower body -->
+  <path d="M118,80 Q122,90 125,100 Q128,110 122,120 Q115,130 105,135 Q98,138 95,145"
+    stroke="#e8d44d" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Dorsal fin -->
+  <path d="M88,62 Q82,45 90,38 Q94,42 92,55"
+    stroke="#e8d44d" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Tail flukes -->
+  <path d="M95,145 Q82,150 75,145 Q80,138 88,142"
+    stroke="#e8d44d" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M95,145 Q85,158 78,160 Q82,152 90,148"
+    stroke="#e8d44d" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Flipper -->
+  <path d="M105,85 Q95,98 88,105 Q92,95 100,87"
+    stroke="#e8d44d" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Eye -->
+  <circle cx="140" cy="52" r="3" fill="#e8d44d"/>
+  <!-- Mouth line -->
+  <path d="M152,58 Q156,60 154,64" stroke="#e8d44d" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Water splashes -->
+  <path d="M70,155 Q65,150 60,155" stroke="#e8d44d" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M55,158 Q50,152 45,157" stroke="#e8d44d" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M130,148 Q135,142 140,148" stroke="#e8d44d" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M145,152 Q150,146 155,152" stroke="#e8d44d" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Water drops -->
+  <path d="M60,140 Q58,135 56,140" stroke="#e8d44d" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M150,138 Q152,132 154,138" stroke="#e8d44d" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <circle cx="52" cy="142" r="1.5" fill="#e8d44d"/>
+  <circle cx="158" cy="140" r="1.5" fill="#e8d44d"/>
+</svg>

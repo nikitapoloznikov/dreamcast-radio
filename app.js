@@ -31,12 +31,8 @@ const MIXES = [
   { id: "1E_Zn7jCVok", title: "PS2 PILLS | Liquid DnB / Jungle Mix", channel: "Orion", genre: "PSX DnB" },
   { id: "2TN6NV6KkG4", title: "EYE PAIN | Liquid DnB / Jungle Mix", channel: "Orion", genre: "Y2K DnB" },
   { id: "Owldd4hs7wQ", title: "PlayStation Jungle Mix 2 | Drum & Bass, Y2K, Liquid", channel: "Dopo Goto", genre: "PSX JUNGLE" },
-  { id: "j78c82AQYvk", title: "Tracing the Amen Break through the PlayStation Library", channel: "Dopo Goto", genre: "PSX JUNGLE" },
-  { id: "nCePi3uQ4Po", title: "The Lost Sound of 90s Gaming", channel: "Dopo Goto", genre: "90s GAMING" },
   { id: "zUK0ivCc8Mk", title: "Late Night PSX: A Curated Breakbeat Experience", channel: "Dopo Goto", genre: "BREAKBEAT" },
   { id: "yb7tHvJ5VAM", title: "Hidden Gems: The 32-bit Breakbeat Revolution", channel: "Dopo Goto", genre: "BREAKBEAT" },
-  { id: "xLGFOt81mkc", title: "TERMINAL PLAYER", channel: "Dopo Goto", genre: "Y2K DnB" },
-  { id: "KB90RWotiXE", title: "This video feels like a scratched game disc", channel: "Dopo Goto", genre: "PSX JUNGLE" },
   { id: "B7cBUsz4WkY", title: "Jungle Fatigue Vol 4 (2024)", channel: "4AM Breaks", genre: "JUNGLE" },
   { id: "ugiugMgIiZw", title: "Jungle Fatigue Vol 3 (2023)", channel: "4AM Breaks", genre: "JUNGLE" },
   { id: "ZLUl3vkI5ZI", title: "Jungle Fatigue Vol 2 (2023)", channel: "4AM Breaks", genre: "JUNGLE" },
@@ -46,9 +42,6 @@ const MIXES = [
   { id: "QnAwfzWqJEI", title: "DAYDREAMS CARTRIDGE :: Atmospheric DnB & Jungle", channel: "arcologies", genre: "ATMOSPHERIC" },
   { id: "6nGITYREWF4", title: "VAPOR DRIVE :: Atmospheric DnB & Jungle", channel: "arcologies", genre: "ATMOSPHERIC" },
   { id: "A-i4_8YEBW8", title: "PARTICLE SHIFT :: Atmospheric DnB & Jungle", channel: "arcologies", genre: "ATMOSPHERIC" },
-  { id: "Hb4bARgep3E", title: "SENSORIUM EP :: Atmospheric DnB & Jungle", channel: "arcologies", genre: "AMBIENT DnB" },
-  { id: "EVrgqD-fpDo", title: "LEVITATION - Deep Atmospheric DnB", channel: "arcologies", genre: "DEEP DnB" },
-  { id: "80XgY-ar1ng", title: "archipelago - akai z8 ambient jungle", channel: "arcologies", genre: "AMBIENT JUNGLE" },
   { id: "8lLbyv1zzdk", title: "OMEGA - Atmospheric DnB/Jungle Mix To Pilot Your Mecha To", channel: "MICROMECHA", genre: "MECHA JUNGLE" },
   { id: "ffngeRTa5BI", title: "AS-1 - Atmospheric DnB/Jungle Mix To Pilot Your Mecha To", channel: "MICROMECHA", genre: "MECHA JUNGLE" },
   { id: "Ygk74kt2KJM", title: "SIDERA - Atmospheric DnB/Jungle Mix #2", channel: "MICROMECHA", genre: "ATMOSPHERIC" },
@@ -69,7 +62,6 @@ const MIXES = [
   { id: "Nh9BrD3xIeU", title: "90s Style Ambient Jungle Mix - Low Poly DnB", channel: "Mostly Hairless", genre: "LOW POLY DnB" },
   { id: "O6yrf6gC4jA", title: "SPACEBALLS THE MIX - Ambient Jungle/DnB Mix", channel: "Zorrovian", genre: "AMBIENT JUNGLE" },
   { id: "Gky6mn22RT8", title: "I AM ZORRO - CLUB FIREWALKER - Ambient Jungle/DnB", channel: "Zorrovian", genre: "AMBIENT JUNGLE" },
-  { id: "XUga9puvyZI", title: "mini BREAKS - Ambient Jungle/DnB Mix", channel: "Zorrovian", genre: "BREAKBEAT" },
   { id: "hgA0TKQeNI0", title: "ah shit, here we go again - Atmospheric DnB Mix", channel: "FIREWALKER", genre: "ATMOSPHERIC" },
   { id: "zxCJsBPezck", title: "PS1 Jazz Jungle Mix - Liquid D&B, PS2/N64, Atmospheric", channel: "Shredward", genre: "JAZZ JUNGLE" },
   { id: "7-qMHDl3ANc", title: "PS1 Atmospheric Jungle/Breakcore Mix - Low Poly Y2K", channel: "Shredward", genre: "PSX BREAKCORE" },
@@ -95,7 +87,7 @@ const VIZ_CLIPS = [
   { id: "HskVownuOKg", seekPoints: [120, 600, 1200, 2400, 3600] },       // Wipeout 2097 racing
   { id: "cnjie2G7_gQ", seekPoints: [60, 300, 800, 1600, 2400] },         // Ridge Racer Type 4
   { id: "LrW6fRjjedw", seekPoints: [300, 1200, 3000, 6000, 9000] },      // Dino Crisis
-  { id: "D6-lbtqQ7oY", seekPoints: [600, 3600, 10800, 25000, 50000] },   // Final Fantasy VII
+  { id: "nBnttA00VTk", seekPoints: [300, 1200, 3600, 7200, 14400] },     // Final Fantasy VII (PSX Longplay)
   { id: "7zvBL65N0z4", seekPoints: [200, 1000, 3000, 6000, 10000] },     // Spyro the Dragon
   { id: "wn5DYc_gdxA", seekPoints: [60, 300, 900, 2400, 5000] },         // Tekken 3
   { id: "XCdWObJDpcs", seekPoints: [300, 1500, 4000, 8000, 15000] },     // Ape Escape
@@ -107,15 +99,14 @@ const VIZ_CLIPS = [
   { id: "H0WXsRkAEvI", seekPoints: [120, 1200, 3600, 7200, 12000] },    // Super Mario 64
   { id: "GhQp8le67Xo", seekPoints: [100, 600, 1800, 4000, 7000] },      // Star Fox 64
   { id: "DTQeEzG0tSc", seekPoints: [60, 400, 1200, 2400, 4000] },       // F-Zero X
-  { id: "9TSwJL8P6rQ", seekPoints: [60, 400, 1200, 2400, 3600] },       // Wave Race 64
   // GameCube
   { id: "sn4e91CqFuM", seekPoints: [300, 2000, 5000, 10000, 15000] },   // Metroid Prime
   // Xbox
   { id: "GPGnh_zK1ew", seekPoints: [200, 1200, 3600, 7200, 14000] },    // Halo: Combat Evolved
   // PS2
-  { id: "Ud308e58LfM", seekPoints: [180, 1000, 3000, 6000, 10000] },    // ONI
+  { id: "NMXe6pxlPN8", seekPoints: [120, 600, 1800, 3600, 5400] },      // ONI (PS2 capture)
   // PC (Y2K era)
-  { id: "1HhPuDT4NKY", seekPoints: [300, 2000, 5000, 10000, 18000] },   // System Shock 2
+  { id: "DswRbPkHTHg", seekPoints: [300, 2000, 5000, 10000, 18000] },   // System Shock 2 (4:3 longplay)
   { id: "hK44IIhzHBw", seekPoints: [30, 180, 500, 900, 1400] },         // Unreal Tournament deathmatch
   // PS1 (via PS5 Classic - same game)
   { id: "LI6I3X1yKq8", seekPoints: [120, 600, 1800, 3600, 5400] },     // Twisted Metal - vehicular combat
@@ -142,27 +133,26 @@ let vizPlayer = null;
 let vizPlayerReady = false;
 let vizClipTimer = null;
 
-// ─── BOOT SCREEN ───
+// ─── BOOT SCREEN (BIOS style) ───
 document.addEventListener('DOMContentLoaded', () => {
   const bootScreen = document.getElementById('boot-screen');
   const app = document.getElementById('app');
 
-  // Animate boot text lines
-  const lines = bootScreen.querySelectorAll('p');
-  lines.forEach((line, i) => {
-    line.style.opacity = '0';
-    setTimeout(() => { line.style.opacity = '1'; }, i * 150);
+  // Animate BIOS lines sequentially
+  const biosLines = bootScreen.querySelectorAll('.bios-line');
+  biosLines.forEach((line, i) => {
+    setTimeout(() => { line.style.opacity = '1'; }, 400 + i * 300);
   });
 
   // Click/tap/key dismisses boot and starts everything
   const enter = () => {
-    bootScreen.style.transition = 'opacity 0.4s';
+    bootScreen.style.transition = 'opacity 0.3s';
     bootScreen.style.opacity = '0';
     setTimeout(() => {
       bootScreen.style.display = 'none';
-      app.style.display = 'flex';
+      app.style.display = 'block';
       initApp();
-    }, 400);
+    }, 300);
     document.removeEventListener('click', enter);
     document.removeEventListener('keydown', enter);
     document.removeEventListener('touchstart', enter);
@@ -182,6 +172,7 @@ function initApp() {
   initPlayerControls();
   initKeyboard();
   initMediaSession();
+  initWindowDrag();
   loadYouTubeAPI();
 }
 
@@ -397,13 +388,13 @@ function loadNextVizClip() {
   const clip = VIZ_CLIPS[Math.floor(Math.random() * VIZ_CLIPS.length)];
   const seek = clip.seekPoints[Math.floor(Math.random() * clip.seekPoints.length)];
   vizPlayer.loadVideoById({ videoId: clip.id, startSeconds: seek });
+  vizPlayer.setPlaybackQuality('medium');
   vizPlayer.mute();
   clearTimeout(vizClipTimer);
   vizClipTimer = setTimeout(loadNextVizClip, 20000 + Math.random() * 20000);
 }
 
 function startVizVideo() {
-  document.getElementById('viz-video-container').style.display = 'block';
   loadNextVizClip();
 }
 
@@ -480,10 +471,10 @@ function resizeViz() {
   const rect = vizCanvas.parentElement.getBoundingClientRect();
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
   vizCanvas.width = rect.width * dpr;
-  vizCanvas.height = (rect.height - 26) * dpr;
+  vizCanvas.height = rect.height * dpr;
   vizCtx.scale(dpr, dpr);
   vizCanvas.style.width = rect.width + 'px';
-  vizCanvas.style.height = (rect.height - 26) + 'px';
+  vizCanvas.style.height = rect.height + 'px';
 }
 
 function renderViz() {
@@ -521,4 +512,40 @@ function renderViz() {
   vizCtx.fillStyle = vig; vizCtx.fillRect(0, 0, w, h);
 
   requestAnimationFrame(renderViz);
+}
+
+// ─── WINDOW DRAG ───
+function initWindowDrag() {
+  const win = document.querySelector('.main-window');
+  const titleBar = win.querySelector('.title-bar');
+  let dragX = 0, dragY = 0, startLeft = 0, startTop = 0, dragging = false;
+
+  titleBar.style.cursor = 'move';
+
+  titleBar.addEventListener('mousedown', (e) => {
+    if (e.target.classList.contains('win-btn')) return;
+    dragging = true;
+    dragX = e.clientX;
+    dragY = e.clientY;
+    const rect = win.getBoundingClientRect();
+    startLeft = rect.left;
+    startTop = rect.top;
+    win.style.transition = 'none';
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    const dx = e.clientX - dragX;
+    const dy = e.clientY - dragY;
+    win.style.left = (startLeft + dx) + 'px';
+    win.style.top = (startTop + dy) + 'px';
+    win.style.right = 'auto';
+    win.style.bottom = 'auto';
+    win.style.transform = 'none';
+  });
+
+  document.addEventListener('mouseup', () => {
+    dragging = false;
+  });
 }
