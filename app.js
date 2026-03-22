@@ -113,6 +113,11 @@ const VIZ_CLIPS = [
   { id: "eS0i7mWm4Dw", seekPoints: [120, 800, 2000, 4000, 6000] },     // Twisted Metal 2 - destruction
   // PS2
   { id: "lB3pQGPkOXM", seekPoints: [300, 1800, 5000, 10000, 18000] },  // Resident Evil Code Veronica X
+  // Tony Hawk (PS1/PS2)
+  { id: "H4B7JkrIB0g", seekPoints: [900, 1200, 1500, 1800, 2100] },    // Tony Hawk
+  { id: "at1DOrF5jvY", seekPoints: [900, 1200, 1500, 1800, 2100] },    // Tony Hawk
+  { id: "CWcWl9qQHSk", seekPoints: [900, 1200, 1500, 1800, 2100] },   // Tony Hawk
+  { id: "b5v7NLT5fS0", seekPoints: [900, 1200, 1500, 1800, 2100] },   // Tony Hawk
   // Anime (Y2K era)
   { id: "9OpqykXpm30", seekPoints: [30, 120, 300, 500, 700] },           // Evangelion angel battles
   { id: "yteSsb4_QTU", seekPoints: [120, 1200, 3600, 6000, 9000] },     // Pokemon anime battles
