@@ -223,7 +223,7 @@ function initMediaSession() {
     if (playerReady && player) player.pauseVideo();
   });
   navigator.mediaSession.setActionHandler('previoustrack', () => {
-    if (currentMixIndex > 1) { currentMixIndex -= 2; loadMix(mixQueue[currentMixIndex]); }
+    if (currentMixIndex > 0) { currentMixIndex = Math.max(0, currentMixIndex - 2); loadMix(mixQueue[currentMixIndex]); }
   });
   navigator.mediaSession.setActionHandler('nexttrack', () => {
     loadMix(getCurrentMix());
@@ -420,7 +420,7 @@ function initPlayerControls() {
     document.getElementById('timeline-fill').style.width = '0%';
   });
   document.getElementById('btn-prev').addEventListener('click', () => {
-    if (currentMixIndex > 1) { currentMixIndex -= 2; loadMix(mixQueue[currentMixIndex]); }
+    if (currentMixIndex > 0) { currentMixIndex = Math.max(0, currentMixIndex - 2); loadMix(mixQueue[currentMixIndex]); }
   });
   document.getElementById('btn-next').addEventListener('click', () => loadMix(getCurrentMix()));
 
