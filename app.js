@@ -133,9 +133,7 @@ let isDragging = false;
 let isSeeking = false;
 let pendingAutoplay = true;
 
-// VHS viz player
-let vizPlayer = null;
-let vizPlayerReady = false;
+// VHS viz player (plain iframe — no YT.Player to avoid media session interference)
 let vizClipTimer = null;
 
 // ─── BOOT SCREEN (BIOS style) ───
@@ -378,25 +376,24 @@ window.onYouTubeIframeAPIReady = () => {
 };
 
 // ─── VHS PLAYER ───
+// Uses a plain <iframe> instead of YT.Player so Chrome doesn't route media keys
+// to the visible viz iframe and override our custom mediaSession handlers.
 function initVizPlayer() {
-  vizPlayer = new YT.Player('viz-yt-player', {
-    width: '100%', height: '100%',
-    playerVars: { autoplay: 0, controls: 0, disablekb: 1, fs: 0, modestbranding: 1, rel: 0, mute: 1, playsinline: 1 },
-    events: {
-      onReady: () => { vizPlayerReady = true; startVizVideo(); },
-      onError: () => { loadNextVizClip(); },
-      onStateChange: (e) => { if (e.data === YT.PlayerState.ENDED) loadNextVizClip(); }
-    }
-  });
+  const container = document.getElementById('viz-yt-player');
+  const iframe = document.createElement('iframe');
+  iframe.id = 'viz-iframe';
+  iframe.frameBorder = '0';
+  iframe.allow = 'autoplay; encrypted-media';
+  container.appendChild(iframe);
+  startVizVideo();
 }
 
 function loadNextVizClip() {
-  if (!vizPlayerReady || !vizPlayer) return;
+  const iframe = document.getElementById('viz-iframe');
+  if (!iframe) return;
   const clip = VIZ_CLIPS[Math.floor(Math.random() * VIZ_CLIPS.length)];
   const seek = clip.seekPoints[Math.floor(Math.random() * clip.seekPoints.length)];
-  vizPlayer.loadVideoById({ videoId: clip.id, startSeconds: seek });
-  vizPlayer.setPlaybackQuality('medium');
-  vizPlayer.mute();
+  iframe.src = `https://www.youtube-nocookie.com/embed/${clip.id}?autoplay=1&mute=1&start=${seek}&controls=0&disablekb=1&fs=0&rel=0&playsinline=1&enablejsapi=0`;
   clearTimeout(vizClipTimer);
   vizClipTimer = setTimeout(loadNextVizClip, 20000 + Math.random() * 20000);
 }
