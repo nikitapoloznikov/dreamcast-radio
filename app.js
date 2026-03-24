@@ -132,6 +132,7 @@ let isPlaying = false;
 let isDragging = false;
 let isSeeking = false;
 let pendingAutoplay = true;
+let lastNavTime = 0; // debounce shared between keyboard and mediaSession nav handlers
 
 // VHS viz player (plain iframe — no YT.Player to avoid media session interference)
 let vizClipTimer = null;
@@ -203,6 +204,12 @@ function initKeyboard() {
         e.preventDefault();
         if (playerReady && player) { const v = Math.max(0, player.getVolume() - 5); player.setVolume(v); document.getElementById('volume').value = v; }
         break;
+      case 'MediaTrackPrevious':
+        if (Date.now() - lastNavTime > 500) { lastNavTime = Date.now(); if (currentMixIndex > 0) { currentMixIndex = Math.max(0, currentMixIndex - 2); loadMix(mixQueue[currentMixIndex]); } }
+        break;
+      case 'MediaTrackNext':
+        if (Date.now() - lastNavTime > 500) { lastNavTime = Date.now(); loadMix(getCurrentMix()); }
+        break;
     }
   });
 }
@@ -221,10 +228,10 @@ function initMediaSession() {
     if (playerReady && player) player.pauseVideo();
   });
   navigator.mediaSession.setActionHandler('previoustrack', () => {
-    if (currentMixIndex > 0) { currentMixIndex = Math.max(0, currentMixIndex - 2); loadMix(mixQueue[currentMixIndex]); }
+    if (Date.now() - lastNavTime > 500) { lastNavTime = Date.now(); if (currentMixIndex > 0) { currentMixIndex = Math.max(0, currentMixIndex - 2); loadMix(mixQueue[currentMixIndex]); } }
   });
   navigator.mediaSession.setActionHandler('nexttrack', () => {
-    loadMix(getCurrentMix());
+    if (Date.now() - lastNavTime > 500) { lastNavTime = Date.now(); loadMix(getCurrentMix()); }
   });
 }
 
