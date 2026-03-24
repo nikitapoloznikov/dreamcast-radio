@@ -223,7 +223,7 @@ function initMediaSession() {
     if (playerReady && player) player.pauseVideo();
   });
   navigator.mediaSession.setActionHandler('previoustrack', () => {
-    if (playerReady && player && isPlaying) player.seekTo(Math.max(0, player.getCurrentTime() - 30), true);
+    if (currentMixIndex > 1) { currentMixIndex -= 2; loadMix(mixQueue[currentMixIndex]); }
   });
   navigator.mediaSession.setActionHandler('nexttrack', () => {
     loadMix(getCurrentMix());
@@ -363,9 +363,11 @@ window.onYouTubeIframeAPIReady = () => {
           isPlaying = true;
           document.getElementById('btn-play').textContent = '\u23F8';
           startTimeUpdate();
+          if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'playing';
         } else if (e.data === YT.PlayerState.PAUSED) {
           isPlaying = false;
           document.getElementById('btn-play').textContent = '\u25B6';
+          if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'paused';
         } else if (e.data === YT.PlayerState.ENDED) {
           loadMix(getCurrentMix());
         }
