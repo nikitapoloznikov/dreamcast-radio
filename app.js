@@ -168,6 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ─── INIT ───
+function isMobile() {
+  return window.innerWidth <= 768;
+}
+
 function initApp() {
   initClock();
   initVisualizer();
@@ -178,6 +182,7 @@ function initApp() {
   initKeyboard();
   initMediaSession();
   initWindowDrag();
+  initMobileSwipe();
   loadYouTubeAPI();
 }
 
@@ -319,6 +324,10 @@ function loadMix(mix) {
   document.getElementById('mix-card').classList.add('swipe-right');
   document.getElementById('player-now-playing').textContent = mix.title;
   document.getElementById('status-text').textContent = `NOW PLAYING: ${mix.genre} // ${mix.channel}`;
+  // Update mobile overlay
+  document.getElementById('mobile-mix-title').textContent = mix.title;
+  document.getElementById('mobile-mix-channel').textContent = mix.channel;
+  document.getElementById('mobile-mix-genre').textContent = mix.genre;
   // Update media session for macOS media keys
   if ('mediaSession' in navigator) {
     navigator.mediaSession.metadata = new MediaMetadata({
@@ -517,6 +526,47 @@ function renderViz() {
   vizCtx.fillStyle = vig; vizCtx.fillRect(0, 0, w, h);
 
   requestAnimationFrame(renderViz);
+}
+
+// ─── MOBILE SWIPE (on video area) ───
+function initMobileSwipe() {
+  const videoPanel = document.querySelector('.video-panel');
+  if (!videoPanel) return;
+
+  let startX = 0, startY = 0, swiping = false;
+  const THRESHOLD = 60;
+
+  videoPanel.addEventListener('touchstart', (e) => {
+    if (!isMobile()) return;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    swiping = true;
+  }, { passive: true });
+
+  videoPanel.addEventListener('touchmove', (e) => {
+    if (!swiping || !isMobile()) return;
+    const dx = e.touches[0].clientX - startX;
+    const dy = e.touches[0].clientY - startY;
+    // If scrolling vertically, cancel swipe
+    if (Math.abs(dy) > Math.abs(dx)) { swiping = false; return; }
+    const hint = document.getElementById('mobile-swipe-hint');
+    if (Math.abs(dx) > 30 && hint) hint.classList.add('active');
+  }, { passive: true });
+
+  videoPanel.addEventListener('touchend', (e) => {
+    if (!swiping || !isMobile()) return;
+    swiping = false;
+    const hint = document.getElementById('mobile-swipe-hint');
+    if (hint) hint.classList.remove('active');
+    const dx = e.changedTouches[0].clientX - startX;
+    if (dx < -THRESHOLD) {
+      // Swipe left = next mix
+      loadMix(getCurrentMix());
+    } else if (dx > THRESHOLD) {
+      // Swipe right = previous
+      if (currentMixIndex > 1) { currentMixIndex -= 2; loadMix(mixQueue[currentMixIndex]); }
+    }
+  }, { passive: true });
 }
 
 // ─── WINDOW DRAG ───
